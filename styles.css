@@ -11,6 +11,7 @@ body {
     --primary-text-color: #181820;
     --secondary-text-color: #5c5c62;
     --durability-text-color: #6a737d9c;
+    --blockquote-bg-color: #eee;
     --icon-color: #6a737d;
     --border-color: #ff9a0045;
     --text-decoration-color: #ff9a00;
@@ -137,109 +138,229 @@ body {
     text-align: justify;
 }
 
+.intro_text p {
+    text-indent: 1em;
+}
+
+.intro_blockquote p {
+    margin: 20px auto;
+    max-width: 80%;
+    padding: 15px;
+    background-color: var(--blockquote-bg-color);
+    border-radius: 5px;
+}
+
+.intro_blockquote p::before {
+    content: '\201C';
+}
+
+.intro_blockquote p::after {
+    content: '\201D';
+}
+
 .skills__header {
     color: var(--secondary-text-color);
     text-align: center;
     margin-bottom: 15px;
 }
 
-.skills__text {
+.skills__wrapper {
+    display: flex;
+    column-gap: 20px;
     color: var(--secondary-text-color);
-    text-align: justify;
 }
 
-.experiences {
-    flex: 1 1 60%;
-    margin-right: 50px;
+.skills__list-container {
+    display: flex;
+    flex: 0 0 50%;
+    justify-content: center;
+}
+
+.skills__list {
+    list-style: none;
+}
+
+.skills__item {
+    position: relative;
+    margin-bottom: 15px;
+    padding-left: 15px;
+}
+
+.skills__item::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 7px;
+    height: 1.5em;
+    background-color: var(--text-decoration-color);
 }
 
 .experiences__header {
     color: var(--secondary-text-color);
-    text-align: left;
+    text-align: center;
     margin-bottom: 20px;
 }
 
-.experiences__company-header-durability {
-    color: var(--durability-text-color);
-    text-align: left;
+.experiences__list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.experiences__item {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 80px;
+}
+
+.experiences__item:not(:last-child) .exp-position::after {
+    content: "";
+    position: absolute;
+    top: 30px;
+    left: 0;
+    width: 1px;
+    height: calc(100% + 50px);
+    background-color: #e5ebf2;
+}
+
+.experiences__item:last-child {
+    margin-bottom: 0;
+}
+
+.experiences__date-company,
+.experiences__position {
+    flex: 0 0 50%;
+}
+
+.experiences__date-company {
+    position: relative;
+    padding-right: 80px;
+    text-align: right;
+}
+
+.experiences__position {
+    padding-left: 80px;
+}
+
+.experiences__time,
+.experiences-position__title {
     margin-bottom: 10px;
-    font-size: 15px;
+    color: #141c3a;
+    font-weight: 400;
+    font-size: 20px;
 }
 
-.experiences__company-header-name {
-    color: var(--primary-text-color);
-    text-decoration-color: var(--text-decoration-color);
-    text-decoration-line: underline;
-    text-align: left;
-    margin-bottom: 20px;
+.experiences__time {
+    position: relative;
 }
 
-.experiences__company-project {
-    margin-left: 15px;
-    margin-bottom: 25px;
+.experiences__time::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: -85px;
+    width: 9px;
+    height: 9px;
+    border-radius: 100%;
+    background-color: var(--text-decoration-color);
+    transform: translateY(-50%);
 }
 
-.experiences__company-project-role {
-    color: var(--durability-text-color);
-    text-align: left;
-    margin-bottom: 10px;
-    font-size: 15px;
-}
-
-.experiences__company-project-name {
-    color: var(--primary-text-color);
-    text-align: left;
-    margin-bottom: 10px;
-}
-
-.experiences__company-project-responsibilities {
-    color: var(--secondary-text-color);
-    padding-left: 20px;
-}
-
-.additional-info {
-    flex: 1 1 40%;
+.exp-position {
+    position: relative;
 }
 
 .additional-info__education {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin-bottom: 20px;
 }
 
 .additional-info__education-header {
     color: var(--secondary-text-color);
-    text-align: left;
+    text-align: center;
     margin-bottom: 20px;
+}
+
+.additional-info__education-university {
+    position: relative;
+    text-align: center;
+}
+
+.additional-info__education-university:not(:last-child) {
+    margin-bottom: 20px;
+}
+
+.additional-info__education-university:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -15px;
+    width: 9px;
+    height: 9px;
+    border-radius: 100%;
+    background-color: var(--text-decoration-color);
+    transform: translateX(-50%);
 }
 
 .additional-info__education-university-durability {
     color: var(--durability-text-color);
-    text-align: left;
     margin-bottom: 10px;
     font-size: 15px;
 }
 
 .additional-info__education-university-speciality {
     color: var(--primary-text-color);
-    text-align: left;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 }
 
 .additional-info__education-university-name {
     color: var(--secondary-text-color);
 }
 
-.additional-info__languages {
-    margin-bottom: 20px;
-}
-
 .additional-info__languages-header {
     color: var(--secondary-text-color);
-    text-align: left;
+    text-align: center;
     margin-bottom: 20px;
 }
 
-.additional-info__languages-item {
-    color: var(--secondary-text-color);
+.languages {
+    padding: 20px;
+    background-color: #f9fbfd;
+}
+
+.languages__list {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    padding: 50px;
+}
+
+.languages__list-wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-left: 20px;
+}
+
+.languages__list-wrapper::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 7px;
+    height: 100%;
+    background-color: var(--text-decoration-color);
+}
+
+.languages__name {
+    color: var(--text-decoration-color);
+    font-weight: 900;
+    font-size: 30px;
 }
 
 @media screen and (max-width: 576px) {
@@ -257,7 +378,19 @@ body {
         margin-bottom: 20px;
     }
 
+    .skills__wrapper {
+        flex-direction: column;
+    }
+
+    .skills__list-container {
+        justify-content: left;
+    }
+
     .experiences {
         margin-right: 0;
+    }
+
+    .languages__list {
+        flex-direction: column;
     }
 }
