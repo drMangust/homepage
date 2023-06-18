@@ -164,9 +164,36 @@ body {
     margin-bottom: 15px;
 }
 
-.skills__text {
+.skills__wrapper {
+    display: flex;
+    column-gap: 20px;
     color: var(--secondary-text-color);
-    text-align: justify;
+}
+
+.skills__list-container {
+    display: flex;
+    flex: 0 0 50%;
+    justify-content: center;
+}
+
+.skills__list {
+    list-style: none;
+}
+
+.skills__item {
+    position: relative;
+    margin-bottom: 15px;
+    padding-left: 15px;
+}
+
+.skills__item::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 7px;
+    height: 1.5em;
+    background-color: var(--text-decoration-color);
 }
 
 .experiences {
@@ -276,6 +303,14 @@ body {
 
     .contact-info__block:not(:last-child) {
         margin-bottom: 20px;
+    }
+
+    .skills__wrapper {
+        flex-direction: column;
+    }
+
+    .skills__list-container {
+        justify-content: left;
     }
 
     .experiences {
