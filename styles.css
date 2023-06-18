@@ -11,6 +11,7 @@ body {
     --primary-text-color: #181820;
     --secondary-text-color: #5c5c62;
     --durability-text-color: #6a737d9c;
+    --blockquote-bg-color: #eeeeee;
     --icon-color: #6a737d;
     --border-color: #ff9a0045;
     --text-decoration-color: #ff9a00;
@@ -135,6 +136,26 @@ body {
 .intro_text {
     color: var(--secondary-text-color);
     text-align: justify;
+}
+
+.intro_text p {
+    text-indent: 1em;
+}
+
+.intro_blockquote p {
+    margin: 20px auto;
+    max-width: 80%;
+    padding: 15px;
+    background-color: var(--blockquote-bg-color);
+    border-radius: 5px;
+}
+
+.intro_blockquote p::before {
+    content: '\201C';
+}
+
+.intro_blockquote p::after {
+    content: '\201D';
 }
 
 .skills__header {
